@@ -71,7 +71,9 @@ SOURCE :=	ft_strrchr.c \
 			ft_arrylstdel.c\
 			ft_arrylstnew.c\
 			ft_strrev.c\
-			ft_uitoa.c
+			ft_uitoa.c\
+			ft_itoab.c\
+			ft_uitoab.c
 
 OBJECTS := $(patsubst %.c,%.o,$(SOURCE))
 

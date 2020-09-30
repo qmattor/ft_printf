@@ -1,52 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   write_data_type.c                                  :+:      :+:    :+:   */
+/*   write_data_types_second.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: MacMini <MacMini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/29 16:27:38 by qmattor           #+#    #+#             */
-/*   Updated: 2020/09/29 20:03:49 by MacMini          ###   ########.fr       */
+/*   Created: 2020/09/29 21:12:57 by MacMini           #+#    #+#             */
+/*   Updated: 2020/09/30 00:40:57 by MacMini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	write_int(int i)
+void	write_octal(int i)
 {
-	char	*temp;
+	char			*temp;
 
-	temp = ft_itoa(i);
+	temp = ft_uitoab(i, "01234567");
 	write(1, temp, ft_strlen(temp));
-	free(temp);
 }
 
-void	write_char(int c)
+void	write_hex_lower(int i)
 {
-	write(1, &c, 1);
-}
-/*
-void	write_long(long i)
-{
-	
-}
-*/
-void	write_unsigned(unsigned i)
-{
-	char	*temp;
+		char			*temp;
 
-	temp = ft_uitoa(i);
+	temp = ft_uitoab(i, "0123456789abcdef");
 	write(1, temp, ft_strlen(temp));
-	free(temp);
 }
-/*
-void	write_float(float f)
+void	write_hex_upper(int i)
 {
-	unsigned long	left;
-	unsigned long	right;
+		char			*temp;
 
-	left = f;
-	f -= left;
-	write(1, ".", 1);
+	temp = ft_uitoab(i, "0123456789ABCDEF");
+	write(1, temp, ft_strlen(temp));
 }
-*/

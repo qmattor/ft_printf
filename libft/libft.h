@@ -6,7 +6,7 @@
 /*   By: MacMini <MacMini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 13:48:22 by qmattor           #+#    #+#             */
-/*   Updated: 2020/09/29 19:00:47 by MacMini          ###   ########.fr       */
+/*   Updated: 2020/09/30 00:34:58 by MacMini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ typedef struct			s_arraylist
 
 t_arraylist				*ft_arrylstnew(size_t size);
 char					*ft_uitoa(unsigned n);
+char					*ft_itoab(int n, char *syms);
+char					*ft_uitoab(unsigned n, char *syms);
 int						ft_arrylstdel(t_arraylist *lst, long int spot);
 void					ft_benull(void **arr, size_t size);
 int						ft_arrylstadd(long int spot, void *elem,

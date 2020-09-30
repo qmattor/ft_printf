@@ -1,21 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   TEST_MAIN.c                                        :+:      :+:    :+:   */
+/*   ft_uitoab.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: MacMini <MacMini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/29 16:31:32 by MacMini           #+#    #+#             */
-/*   Updated: 2020/09/30 00:44:03 by MacMini          ###   ########.fr       */
+/*   Created: 2020/09/30 00:35:18 by MacMini           #+#    #+#             */
+/*   Updated: 2020/09/30 00:37:04 by MacMini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <limits.h>
+#include "libft.h"
 
-
-int main(void)
+char		*ft_uitoab(unsigned n, char *syms)
 {
-    ft_printf("praise %s %x %X\n", "the sun", INT_MAX, INT_MAX);
-	printf("%x %X\n", INT_MAX, INT_MAX);
+	char			*str;
+	unsigned long	temp;
+	int				i;
+
+	i = 0;
+	str = ft_strnew(10);
+	temp = n;
+	temp == 0 ? str[0] = syms[0] : 0;
+	if (n == 0)
+		return (str);
+	temp = temp < 0 ? -temp : temp;
+	while (temp > 0)
+	{
+		str[i++] = syms[(temp % ft_strlen(syms))];
+		temp /= ft_strlen(syms);
+	}
+	ft_strrev(str);
+	return (str);
 }
