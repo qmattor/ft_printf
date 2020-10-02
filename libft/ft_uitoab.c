@@ -6,7 +6,7 @@
 /*   By: MacMini <MacMini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/30 00:35:18 by MacMini           #+#    #+#             */
-/*   Updated: 2020/09/30 00:37:04 by MacMini          ###   ########.fr       */
+/*   Updated: 2020/09/30 01:21:06 by MacMini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char		*ft_uitoab(unsigned n, char *syms)
 {
-	char			*str;
-	unsigned long	temp;
-	int				i;
+	char		*str;
+	unsigned	temp;
+	int			i;
 
 	i = 0;
 	str = ft_strnew(10);

@@ -6,7 +6,7 @@
 /*   By: MacMini <MacMini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 16:31:32 by MacMini           #+#    #+#             */
-/*   Updated: 2020/09/30 00:44:03 by MacMini          ###   ########.fr       */
+/*   Updated: 2020/10/01 22:15:37 by MacMini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,34 @@
 
 int main(void)
 {
-    ft_printf("praise %s %x %X\n", "the sun", INT_MAX, INT_MAX);
-	printf("%x %X\n", INT_MAX, INT_MAX);
+	int		*p;
+	char	c[] = "test";
+	int		x;
+
+	//	sSpdDioOuUxXcC%
+
+	x = -54321;
+	p = &x;
+    printf("%s\n", c);
+	ft_printf("%s\n", c);
+    printf("%p\n", p);
+	ft_printf("%p\n", p);
+    printf("%i\n", x);
+	ft_printf("%i\n", x);
+    printf("%d\n", x);
+	ft_printf("%d\n", x);
+    printf("%o\n", x);
+	ft_printf("%o\n", x);
+    printf("%u\n", x);
+	ft_printf("%u\n", x);
+    printf("%x\n", x);
+	ft_printf("%x\n", x);
+    printf("%c\n", *c);
+	ft_printf("%c\n", *c);
+    printf("%%\n");
+	ft_printf("%%\n");
+	printf("%#x\n", x);
+	printf("%x\n", x);
+	printf("%0#11x\n", x);	//these all work in conjunction
+	printf("%0#x\n", x);	//the # takes precident
 }

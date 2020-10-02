@@ -6,7 +6,7 @@
 /*   By: MacMini <MacMini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 19:46:29 by MacMini           #+#    #+#             */
-/*   Updated: 2020/09/30 00:43:02 by MacMini          ###   ########.fr       */
+/*   Updated: 2020/09/30 01:17:42 by MacMini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,16 @@ void	parse_and_call(va_list args, char spec)
 		holder = (int *)malloc(sizeof(int));
 		*((int *)(holder)) = va_arg(args, int);
 		write_hex_upper(*((int *)(holder)));
+	}
+	else if(spec == 'p')
+	{
+		holder = va_arg(args, void *);
+		write_pointer(holder);
+	}else if (spec == 'u' || spec == 'U')
+	{
+		holder = (int *)malloc(sizeof(int));
+		*((int *)(holder)) = va_arg(args, int);
+		write_unsigned(*((int *)(holder)));
 	}
 
 }

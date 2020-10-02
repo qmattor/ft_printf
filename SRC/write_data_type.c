@@ -6,7 +6,7 @@
 /*   By: MacMini <MacMini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 16:27:38 by qmattor           #+#    #+#             */
-/*   Updated: 2020/09/29 20:03:49 by MacMini          ###   ########.fr       */
+/*   Updated: 2020/10/01 22:15:37 by MacMini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,14 @@ void	write_unsigned(unsigned i)
 	write(1, temp, ft_strlen(temp));
 	free(temp);
 }
+
+
+// assumed input is the input str, starting right after the %
+void	check_for_mods(char *str)
+{
+	
+}
+
 /*
 void	write_float(float f)
 {

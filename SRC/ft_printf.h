@@ -6,7 +6,7 @@
 /*   By: MacMini <MacMini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 15:38:02 by MacMini           #+#    #+#             */
-/*   Updated: 2020/09/30 00:41:20 by MacMini          ###   ########.fr       */
+/*   Updated: 2020/09/30 01:22:34 by MacMini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,6 @@ void			write_octal(int i);
 void			parse_and_call(va_list args, char spec);
 void			write_hex_lower(int i);
 void			write_hex_upper(int i);
+void			write_pointer(void *p);
+char			*point_to_str(unsigned long n, char *syms);
 #endif
