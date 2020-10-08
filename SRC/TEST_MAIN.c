@@ -6,7 +6,7 @@
 /*   By: MacMini <MacMini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 16:31:32 by MacMini           #+#    #+#             */
-/*   Updated: 2020/10/01 22:15:37 by MacMini          ###   ########.fr       */
+/*   Updated: 2020/10/06 12:51:07 by MacMini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,28 +22,30 @@ int main(void)
 
 	//	sSpdDioOuUxXcC%
 
-	x = -54321;
+	x = 54321;
 	p = &x;
-    printf("%s\n", c);
+    // printf("%s\n", c);
 	ft_printf("%s\n", c);
-    printf("%p\n", p);
+    // printf("%p\n", p);
 	ft_printf("%p\n", p);
-    printf("%i\n", x);
+    // printf("%i\n", x);
 	ft_printf("%i\n", x);
-    printf("%d\n", x);
+    // printf("%d\n", x);
 	ft_printf("%d\n", x);
-    printf("%o\n", x);
+    // printf("%o\n", x);
 	ft_printf("%o\n", x);
-    printf("%u\n", x);
+    // printf("%u\n", x);
 	ft_printf("%u\n", x);
-    printf("%x\n", x);
+    // printf("%x\n", x);
 	ft_printf("%x\n", x);
-    printf("%c\n", *c);
+	// printf("%c\n", *c);
 	ft_printf("%c\n", *c);
-    printf("%%\n");
+	// printf("%%\n");
 	ft_printf("%%\n");
-	printf("%#x\n", x);
-	printf("%x\n", x);
-	printf("%0#11x\n", x);	//these all work in conjunction
-	printf("%0#x\n", x);	//the # takes precident
+	// printf("%#x\n", x);
+	// printf("%x\n", x);
+	ft_printf("%+13i\n", x);	//these all work in conjunction, also, notably the padding number can be any positive number up to 0x7FFFFFFE
+	ft_printf("%0#x\n", x);		//the # takes precident and also counts as width
+	ft_printf("%-10uA\n", x);
+	ft_printf("%hhi\n", *c);
 }

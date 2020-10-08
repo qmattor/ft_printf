@@ -2,7 +2,8 @@ CC := gcc
 NAME := ft_printf
 CFLAGS := -Wall -Wextra -Werror
 LIBFT := libft/libft.a
-SOURCE := SRC/ft_printf.c SRC/TEST_MAIN.c SRC/write_data_type.c SRC/variable_param.c SRC/write_data_types_second.c
+SOURCE :=	SRC/ft_printf.c SRC/TEST_MAIN.c SRC/write_data_type.c SRC/write_data_types_second.c SRC/struct_stuff.c SRC/errors.c\
+			SRC/parsing.c
 
 OBJECTS := $(patsubst %.c,%.o,$(SOURCE))
 

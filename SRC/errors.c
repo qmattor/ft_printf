@@ -1,40 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: MacMini <MacMini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/29 15:41:57 by MacMini           #+#    #+#             */
-/*   Updated: 2020/10/06 13:00:37 by MacMini          ###   ########.fr       */
+/*   Created: 2020/10/02 06:20:36 by MacMini           #+#    #+#             */
+/*   Updated: 2020/10/06 04:33:44 by MacMini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_printf(char *str, ...)
+int		invalid_mods()
 {
-	va_list	args;
-	int		x;
-
-	x = 0;
-	va_start(args, str);
-	while (ft_strchr(str, '%') != NULL)
-	{
-		if (*(str + 1) == '%')
-		{
-			write(1, "%", 1);
-			str++;
-		}
-		else
-		{
-			write(1, str, ft_strchr(str, '%') - str);
-			str = main_write(str, args);
-		}
-		str++;
-	}
-	write(1, str, ft_strlen(str));
-	va_end(args);
+	write(2, "\nft_printf: invalid mod encountered\n", 37);
+	exit(1);
 	return (0);
 }
 
+int		double_mod()
+{
+	write(2, "\nft_printf: double mod encountered\n", 36);
+	exit(1);
+	return (0);
+}

@@ -6,43 +6,49 @@
 /*   By: MacMini <MacMini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 21:12:57 by MacMini           #+#    #+#             */
-/*   Updated: 2020/09/30 01:23:53 by MacMini          ###   ########.fr       */
+/*   Updated: 2020/10/05 03:55:19 by MacMini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	write_octal(int i)
+void	write_octal(t_specvar *var, va_list args)
 {
-	char			*temp;
+	char	*temp;
 
-	temp = ft_uitoab(i, "01234567");
+	var->hold = malloc(sizeof(unsigned int));
+	*((int *)(var->hold)) = va_arg(args, unsigned int);
+	temp = ft_uitoab(*((int *)(var->hold)), "01234567");
 	write(1, temp, ft_strlen(temp));
 	free(temp);
 }
-
-void	write_hex_lower(int i)
+void	write_hex_lower(t_specvar *var, va_list args)
 {
 	char			*temp;
 
-	temp = ft_uitoab(i, "0123456789abcdef");
+	var->hold = malloc(sizeof(unsigned int));
+	*((unsigned int *)(var->hold)) = va_arg(args, unsigned int);
+	temp = ft_uitoab(*((int *)var->hold), "0123456789abcdef");
 	write(1, temp, ft_strlen(temp));
 	free(temp);
 }
-void	write_hex_upper(int i)
+void	write_hex_upper(t_specvar *var, va_list args)
 {
 	char			*temp;
 
-	temp = ft_uitoab(i, "0123456789ABCDEF");
+	var->hold = malloc(sizeof(unsigned int));
+	*((unsigned int *)(var->hold)) = va_arg(args, unsigned int);
+	temp = ft_uitoab(*((int *)(var->hold)), "0123456789ABCDEF");
 	write(1, temp, ft_strlen(temp));
 	free(temp);
 }
-
-void	write_pointer(void *p)
+void	write_pointer(t_specvar *var, va_list args)
 {
 	char			*temp;
 
-	temp = point_to_str((long int)p, "0123456789abcdef");
+	var->hold = malloc(sizeof(unsigned int));
+	var->hold = va_arg(args, void *);
+	temp = point_to_str((long int)var->hold, "0123456789abcdef");
 	write(1, "0x", 2);
 	write(1, temp, ft_strlen(temp));
 	free(temp);

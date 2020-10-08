@@ -1,40 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   struct_stuff.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: MacMini <MacMini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/29 15:41:57 by MacMini           #+#    #+#             */
-/*   Updated: 2020/10/06 13:00:37 by MacMini          ###   ########.fr       */
+/*   Created: 2020/10/02 05:16:26 by MacMini           #+#    #+#             */
+/*   Updated: 2020/10/06 11:35:25 by MacMini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_printf(char *str, ...)
+t_specvar	*create_ele()
 {
-	va_list	args;
-	int		x;
+	t_specvar	*temp;
 
-	x = 0;
-	va_start(args, str);
-	while (ft_strchr(str, '%') != NULL)
-	{
-		if (*(str + 1) == '%')
-		{
-			write(1, "%", 1);
-			str++;
-		}
-		else
-		{
-			write(1, str, ft_strchr(str, '%') - str);
-			str = main_write(str, args);
-		}
-		str++;
-	}
-	write(1, str, ft_strlen(str));
-	va_end(args);
-	return (0);
+	temp = malloc(sizeof(t_specvar));
+	temp->width = 0;
+	return (temp);
 }
 
+void	del_var(t_specvar *var)
+{
+	free(var->mods);
+	free(var);
+}
