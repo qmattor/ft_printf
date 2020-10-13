@@ -6,11 +6,15 @@
 /*   By: MacMini <MacMini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/02 06:20:36 by MacMini           #+#    #+#             */
-/*   Updated: 2020/10/06 04:33:44 by MacMini          ###   ########.fr       */
+/*   Updated: 2020/10/13 10:52:16 by MacMini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+/*
+**	This file contains error handling
+*/
 
 int		invalid_mods()
 {

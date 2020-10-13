@@ -6,7 +6,7 @@
 /*   By: MacMini <MacMini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/06 04:46:58 by MacMini           #+#    #+#             */
-/*   Updated: 2020/10/06 12:56:06 by MacMini          ###   ########.fr       */
+/*   Updated: 2020/10/13 10:52:10 by MacMini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,11 @@ void	parse_mods(char	*mods, char *str_ltr)
 	modstr = MODCHAR;
 	if (ft_strchr(SPECIALCHAR, *str_ltr) != NULL)
 		return ;
-	while (*str_ltr)
+	while (*(str_ltr + 1))
 	{
-		if (ft_strchr(modstr, *str_ltr) == NULL)
+		if (ft_strchr(modstr, *str_ltr) == NULL && !ft_isdigit(*str_ltr))
 			invalid_mods();
-		else
+		else if (!ft_isdigit(*str_ltr) || (!ft_atoi(str_ltr) && !ft_atoi(str_ltr - 1)))			///seg fault potential
 		{
 			if (*str_ltr == 'l' && *(str_ltr + 1) == 'l')
 			{
@@ -106,8 +106,8 @@ char	*main_write(char *str, va_list args)
 	var = malloc(sizeof(t_specvar));
 	str_ltr = get_str_lit(str);
 	width = get_width(str_ltr);
-	printf("\n%s", str_ltr);
 	parse_mods(mods, str_ltr);
+	print_mods(mods);
 	var->mods = mods;
 	var->width = width;
 	var->specif = get_spec(str_ltr);

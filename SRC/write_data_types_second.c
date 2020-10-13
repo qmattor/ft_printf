@@ -6,11 +6,13 @@
 /*   By: MacMini <MacMini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 21:12:57 by MacMini           #+#    #+#             */
-/*   Updated: 2020/10/05 03:55:19 by MacMini          ###   ########.fr       */
+/*   Updated: 2020/10/13 13:42:57 by MacMini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+//	same as first write data type but extended
 
 void	write_octal(t_specvar *var, va_list args)
 {
@@ -28,20 +30,12 @@ void	write_hex_lower(t_specvar *var, va_list args)
 
 	var->hold = malloc(sizeof(unsigned int));
 	*((unsigned int *)(var->hold)) = va_arg(args, unsigned int);
-	temp = ft_uitoab(*((int *)var->hold), "0123456789abcdef");
+	temp = ft_uitoab(*((int *)var->hold), var->specif == 'x' ?
+	"0123456789abcdef" : "0123456789ABCDEF");
 	write(1, temp, ft_strlen(temp));
 	free(temp);
 }
-void	write_hex_upper(t_specvar *var, va_list args)
-{
-	char			*temp;
 
-	var->hold = malloc(sizeof(unsigned int));
-	*((unsigned int *)(var->hold)) = va_arg(args, unsigned int);
-	temp = ft_uitoab(*((int *)(var->hold)), "0123456789ABCDEF");
-	write(1, temp, ft_strlen(temp));
-	free(temp);
-}
 void	write_pointer(t_specvar *var, va_list args)
 {
 	char			*temp;

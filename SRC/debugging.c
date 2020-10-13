@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct_stuff.c                                     :+:      :+:    :+:   */
+/*   debugging.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: MacMini <MacMini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/02 05:16:26 by MacMini           #+#    #+#             */
-/*   Updated: 2020/10/10 04:58:59 by MacMini          ###   ########.fr       */
+/*   Created: 2020/10/09 05:08:02 by MacMini           #+#    #+#             */
+/*   Updated: 2020/10/10 05:38:13 by MacMini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-/*
-**	this is for managing stuctures, probably could have mushed it into another file
-**	but it looks cleaner this way
-*/
-
-t_specvar	*create_ele()
+void	print_mods(char *mods)
 {
-	t_specvar	*temp;
+	int x;
 
-	temp = malloc(sizeof(t_specvar));
-	temp->width = 0;
-	return (temp);
-}
-
-void	del_var(t_specvar *var)
-{
-	free(var->mods);
-	free(var);
+	x = 0;
+	write(1, "0, #, -, +, l, h, z, j,  ,ll,hh,\n", 33);
+	while (x < 11)
+		write(1, mods[x++] ? "1, " : "0, ", 4);
 }

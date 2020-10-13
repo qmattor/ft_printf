@@ -6,7 +6,7 @@
 /*   By: MacMini <MacMini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 15:38:02 by MacMini           #+#    #+#             */
-/*   Updated: 2020/10/06 11:40:27 by MacMini          ###   ########.fr       */
+/*   Updated: 2020/10/13 10:52:20 by MacMini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,11 @@ typedef struct				s_specvar
 int							ft_printf(char *str, ...);
 
 //write_data_type.c
-void						write_int(t_specvar *var, va_list args);
-void						write_char(t_specvar *var, va_list args);
-void						write_str(t_specvar *var, va_list args);
-void						write_unsigned(t_specvar *var, va_list args);
-void						write_long(t_specvar *var, va_list args);
+void						write_int(t_specvar *var);
+void						write_char(t_specvar *var);
+void						write_str(t_specvar *var);
+void						write_unsigned(t_specvar *var);
+void						write_long(t_specvar *var);
 
 //write_data_types_second.c
 void						write_octal(t_specvar *var, va_list args);
@@ -76,4 +76,10 @@ char						*main_write(char *str, va_list args);
 
 //needs new file
 char						*ft_ltoa(long int n); //in write data type
+
+//debugging.c
+void						print_mods(char *mods);
+
+//switches.c
+void						var_param_read(t_specvar *var, va_list args);
 #endif
