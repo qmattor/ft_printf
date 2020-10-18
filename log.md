@@ -44,5 +44,14 @@ debugging:
     print_mods:
         prints out the mods and what they corralate too
 
-write_data_type & 2:
+write_data_type & 2 & more:
     Basically all the same functions, but slightly different. Writes the data in the specified format.
+    I really don't feel like writing out each specific one, they're really self explanitory
+
+misc:
+    addneg:
+        supporting function for itoa
+    ft_ltoa:
+        itoa adapted for long ints
+    point_to_str:
+        itoa but for pointers

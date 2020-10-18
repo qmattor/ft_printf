@@ -6,7 +6,7 @@
 /*   By: MacMini <MacMini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/06 04:46:58 by MacMini           #+#    #+#             */
-/*   Updated: 2020/10/13 10:52:10 by MacMini          ###   ########.fr       */
+/*   Updated: 2020/10/17 19:59:35 by MacMini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,15 +101,15 @@ char	*main_write(char *str, va_list args)
 	char		*mods;
 	t_specvar	*var;
 
-	(void)args;
 	mods = ft_strnew(10);
 	var = malloc(sizeof(t_specvar));
 	str_ltr = get_str_lit(str);
 	width = get_width(str_ltr);
 	parse_mods(mods, str_ltr);
-	print_mods(mods);
 	var->mods = mods;
 	var->width = width;
 	var->specif = get_spec(str_ltr);
+	var_param_read(var, args);
+	write_calls(var);
 	return (str + ft_strlen(str_ltr));
 }

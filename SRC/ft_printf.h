@@ -6,7 +6,7 @@
 /*   By: MacMini <MacMini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 15:38:02 by MacMini           #+#    #+#             */
-/*   Updated: 2020/10/13 10:52:20 by MacMini          ###   ########.fr       */
+/*   Updated: 2020/10/17 19:58:42 by MacMini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,10 @@ typedef struct				s_specvar
 //ft_printf.c
 int							ft_printf(char *str, ...);
 
+//more_writes.c
+void						write_long_octal(t_specvar *var);
+
+
 //write_data_type.c
 void						write_int(t_specvar *var);
 void						write_char(t_specvar *var);
@@ -49,11 +53,9 @@ void						write_unsigned(t_specvar *var);
 void						write_long(t_specvar *var);
 
 //write_data_types_second.c
-void						write_octal(t_specvar *var, va_list args);
-void						write_hex_lower(t_specvar *var, va_list args);
-void						write_hex_upper(t_specvar *var, va_list args);
-void						write_pointer(t_specvar *var, va_list args);
-char						*point_to_str(unsigned long n, char *syms);
+void						write_octal(t_specvar *var);
+void						write_hex(t_specvar *var);
+void						write_pointer(t_specvar *var);
 
 
 //variable_param.c
@@ -74,12 +76,14 @@ char						*get_str_lit(char *str);
 char						get_spec(char *str_ltr);
 char						*main_write(char *str, va_list args);
 
-//needs new file
-char						*ft_ltoa(long int n); //in write data type
+//misc.c
+char						*ft_ltoa(long int n);
+char						*point_to_str(unsigned long n, char *syms);
 
 //debugging.c
 void						print_mods(char *mods);
 
 //switches.c
 void						var_param_read(t_specvar *var, va_list args);
+void						write_calls(t_specvar *var);
 #endif

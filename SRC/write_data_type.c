@@ -6,7 +6,7 @@
 /*   By: MacMini <MacMini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 16:27:38 by qmattor           #+#    #+#             */
-/*   Updated: 2020/10/13 11:18:11 by MacMini          ###   ########.fr       */
+/*   Updated: 2020/10/14 20:51:14 by MacMini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,39 +95,4 @@ void	write_long(t_specvar *var)
 		write(1, temp, ft_strlen(temp));
 	}
 	free(temp);
-}
-
-static char	*addneg(char *str)
-{
-	char	*temp;
-
-	temp = str;
-	str = ft_strjoin("-", str);
-	free(temp);
-	return (str);
-}
-
-char		*ft_ltoa(long int n)
-{
-	char		*str;
-	int			flag;
-	long long	temp;
-	int			i;
-
-	i = 0;
-	str = ft_strnew(20);
-	temp = n;
-	temp == 0 ? str[0] = 48 : 0;
-	if (n == 0)
-		return (str);
-	flag = temp < 0 ? 1 : 0;
-	temp = temp < 0 ? -temp : temp;
-	while (temp > 0)
-	{
-		str[i++] = (temp % 10) + 48;
-		temp /= 10;
-	}
-	ft_strrev(str);
-	str = flag ? addneg(str) : str;
-	return (str);
 }
