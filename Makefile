@@ -1,9 +1,9 @@
 CC := gcc
-NAME := ft_printf
+NAME := ft_printf.a
 CFLAGS := -Wall -Wextra -Werror
 LIBFT := libft/libft.a
-SOURCE :=	SRC/ft_printf.c SRC/TEST_MAIN.c SRC/write_data_type.c SRC/write_data_types_second.c SRC/struct_stuff.c SRC/errors.c\
-			SRC/parsing.c SRC/debugging.c SRC/switches.c SRC/more_writes.c SRC/misc.c
+SOURCE :=	SRC/ft_printf.c SRC/write_data_type.c SRC/write_data_types_second.c SRC/struct_stuff.c SRC/errors.c\
+			SRC/parsing.c SRC/debugging.c SRC/switches.c SRC/misc.c SRC/width.c
 
 OBJECTS := $(patsubst %.c,%.o,$(SOURCE))
 
@@ -14,8 +14,8 @@ all: $(NAME)
 
 $(NAME): $(OBJECTS)
 	make -C libft
-	$(CC) $(CFLAGS) $(OBJECTS) $(LIBFT) -o $(NAME)
-
+	ar rc $@ $^
+	ranlib $(NAME)
 debug:
 	$(CC) $(CFLAGS) -g $(SOURCE) $(LIBFT) -o $(NAME)
 

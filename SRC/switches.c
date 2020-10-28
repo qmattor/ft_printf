@@ -6,7 +6,7 @@
 /*   By: MacMini <MacMini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 06:00:48 by MacMini           #+#    #+#             */
-/*   Updated: 2020/10/17 20:31:04 by MacMini          ###   ########.fr       */
+/*   Updated: 2020/10/27 20:14:23 by MacMini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	var_param_read(t_specvar *var, va_list args)
 {
-	if (var->specif == 's'  || var->specif == 'S')
+	if (var->specif == 's' || var->specif == 'S')
 		var->hold = va_arg(args, char *);
 	else if (var->specif == 'p')
 		var->hold = va_arg(args, void *);
@@ -23,41 +23,15 @@ void	var_param_read(t_specvar *var, va_list args)
 	|| var->specif == 'd'|| var->specif == 'O' || var->specif == 'U'
 	|| var->specif == 'C' || var->specif == 'D'))
 	{
-		if (var->mods[SINGLEL])
-		{
-			var->hold = malloc(sizeof(long int));
-			*((long int *)var->hold) = va_arg(args, long int);
-		}
-		else if (var->mods[DOUBLEL])
-		{
-			var->hold = malloc(sizeof(long long int));
-			*((long long int *)var->hold) = va_arg(args, long int);
-		}
-		else
-		{
-			var->hold = malloc(sizeof(int));
-			*((int *)var->hold) = va_arg(args, int);
-		}
+		var->hold = malloc(sizeof(long long int));
+		DEREFERENCE = va_arg(args, long long int);
 	}
-	
 }
 
 void	write_calls(t_specvar *var)
 {
-	if (var->mods[SINGLEL])
-	{
-		if (var->specif == 'i' || var->specif == 'd' || var->specif == 'D')
-			write_long(var);
-		if (var->specif == 'o' || var->specif == 'O')
-			// write_long_octal(var);
-		if (var->specif == 's' ||	var->specif == 'S')
-			write_str(var);
-	}
-	else if (var->mods[DOUBLEL])
-	{
-		
-	}
-	else if (var->specif == 'i' || var->specif == 'd' || var->specif == 'D')
+
+	if (var->specif == 'i' || var->specif == 'd' || var->specif == 'D')
 		write_int(var);
 	else if (var->specif == 'u' || var->specif == 'U')
 		write_unsigned(var);
@@ -69,4 +43,34 @@ void	write_calls(t_specvar *var)
 		write_octal(var);
 	else if (var->specif == 'p')
 		write_pointer(var);
+}
+
+//more shenanagance has ensued
+
+char	*infotoascii(void *hold, char spec, char *mods)
+{
+	char			*temp;
+	long long int	long_temp;
+
+	temp = NULL;
+	if (mods[DOUBLEH])
+		long_temp = (long long)(*(char *)hold);
+	else if (mods[SINGLEH])
+		long_temp = (long long)(*(short *)hold);
+	else if (mods[SINGLEL])
+		long_temp = (long long)(*(long *)hold);
+	else if (mods[DOUBLEL])
+		long_temp = *((long long *)hold);
+	else
+		long_temp = (long long)(*(int *)hold);
+	if (spec == 'i' || spec == 'd' || spec == 'D')
+		temp = ft_ltoa(long_temp);
+	else if (spec == 'u' || spec == 'U')
+		temp = ft_luitoa(long_temp);
+	else if (spec == 'x' || spec == 'X')
+		temp = ft_luitoab(long_temp, spec == 'x' ?
+		"0123456789abcdef" : "0123456789ABCDEF");
+	else if (spec == 'o' || spec == 'O')
+		temp = ft_luitoab(long_temp, "01234567");
+	return (temp);
 }

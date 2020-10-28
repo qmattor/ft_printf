@@ -6,7 +6,7 @@
 /*   By: MacMini <MacMini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/02 05:16:26 by MacMini           #+#    #+#             */
-/*   Updated: 2020/10/10 04:58:59 by MacMini          ###   ########.fr       */
+/*   Updated: 2020/10/27 20:20:13 by MacMini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ t_specvar	*create_ele()
 
 void	del_var(t_specvar *var)
 {
+	if (var->specif != 's' && var->specif != 'S' && var->specif != 'p')
+		free(var->hold);
 	free(var->mods);
 	free(var);
 }

@@ -6,7 +6,7 @@
 /*   By: MacMini <MacMini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 15:41:57 by MacMini           #+#    #+#             */
-/*   Updated: 2020/10/17 20:08:15 by MacMini          ###   ########.fr       */
+/*   Updated: 2020/10/27 20:12:18 by MacMini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int		ft_printf(char *str, ...)
 		else
 		{
 			write(1, str, ft_strchr(str, '%') - str);
+			str = ft_strchr(str, '%');
 			str = main_write(str, args);
 		}
 		str++;
@@ -41,4 +42,3 @@ int		ft_printf(char *str, ...)
 	va_end(args);
 	return (0);
 }
-

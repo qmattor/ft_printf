@@ -6,11 +6,13 @@
 /*   By: MacMini <MacMini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 05:08:02 by MacMini           #+#    #+#             */
-/*   Updated: 2020/10/10 05:38:13 by MacMini          ###   ########.fr       */
+/*   Updated: 2020/10/27 20:39:47 by MacMini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+//	this file was just for debugging purposes
 
 void	print_mods(char *mods)
 {

@@ -6,7 +6,7 @@
 /*   By: MacMini <MacMini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 15:38:02 by MacMini           #+#    #+#             */
-/*   Updated: 2020/10/17 19:58:42 by MacMini          ###   ########.fr       */
+/*   Updated: 2020/10/27 20:24:28 by MacMini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 # include <unistd.h>
 # include "../libft/libft.h"
 # include <stdarg.h>
-# include <stdio.h>
 # include <stdlib.h>
 # define SPECIALCHAR "sSpdDioOuUxXcC\45"
 # define MODCHAR "0#-+lhzj "
@@ -30,6 +29,7 @@
 # define ZFLAG 6
 # define JFLAG 7
 # define SPACE 8
+# define DEREFERENCE *((long long *)var->hold)
 typedef struct				s_specvar
 {
 	int						width;
@@ -50,7 +50,6 @@ void						write_int(t_specvar *var);
 void						write_char(t_specvar *var);
 void						write_str(t_specvar *var);
 void						write_unsigned(t_specvar *var);
-void						write_long(t_specvar *var);
 
 //write_data_types_second.c
 void						write_octal(t_specvar *var);
@@ -68,16 +67,18 @@ void						del_var(t_specvar *var);
 t_specvar					*create_ele();
 //errors.c
 int							invalid_mods();
-int							double_mod();
+//int						double_mod();
 
 //parsing.c
-int							get_width(char *str);
 char						*get_str_lit(char *str);
 char						get_spec(char *str_ltr);
 char						*main_write(char *str, va_list args);
 
 //misc.c
-char						*ft_ltoa(long int n);
+long long					ft_abs(long long num);
+char						*ft_ltoa(long long int n);
+char						*ft_luitoab(unsigned long long n, char *dstr);
+char						*ft_luitoa(unsigned long long n);
 char						*point_to_str(unsigned long n, char *syms);
 
 //debugging.c
@@ -86,4 +87,8 @@ void						print_mods(char *mods);
 //switches.c
 void						var_param_read(t_specvar *var, va_list args);
 void						write_calls(t_specvar *var);
+char						*infotoascii(void *hold, char spec, char *mods);
+//width
+int							get_width(char *str);
+char						check_not_width(char *str_ltr, char *place);
 #endif
