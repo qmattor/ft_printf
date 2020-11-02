@@ -6,7 +6,7 @@
 /*   By: MacMini <MacMini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 15:41:57 by MacMini           #+#    #+#             */
-/*   Updated: 2020/10/27 20:12:18 by MacMini          ###   ########.fr       */
+/*   Updated: 2020/11/01 01:31:18 by MacMini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int		ft_printf(char *str, ...)
 		else
 		{
 			write(1, str, ft_strchr(str, '%') - str);
-			str = ft_strchr(str, '%');
+			str = ft_strchr(str, '%');		// I forgot that this moves the str pointer to the % so that the str_ltr starts from the right spot
 			str = main_write(str, args);
 		}
 		str++;

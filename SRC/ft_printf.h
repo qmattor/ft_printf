@@ -6,7 +6,7 @@
 /*   By: MacMini <MacMini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 15:38:02 by MacMini           #+#    #+#             */
-/*   Updated: 2020/10/27 20:24:28 by MacMini          ###   ########.fr       */
+/*   Updated: 2020/11/01 01:32:26 by MacMini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void						print_mods(char *mods);
 //switches.c
 void						var_param_read(t_specvar *var, va_list args);
 void						write_calls(t_specvar *var);
-char						*infotoascii(void *hold, char spec, char *mods);
+char						*infotoascii(void *hold, char spec);
 //width
 int							get_width(char *str);
 char						check_not_width(char *str_ltr, char *place);

@@ -6,7 +6,7 @@
 /*   By: MacMini <MacMini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 16:27:38 by qmattor           #+#    #+#             */
-/*   Updated: 2020/10/27 19:55:55 by MacMini          ###   ########.fr       */
+/*   Updated: 2020/11/01 01:32:50 by MacMini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	write_int(t_specvar *var)
 {
 	char	*temp;
 
-	temp = infotoascii(var->hold, var->specif, var->mods);
+	temp = infotoascii(var->hold, var->specif);
 	if (var->mods[ZERO])
 		write_sign(var);
 	if (var->mods[LEFTJUST])
@@ -88,7 +88,7 @@ void	write_unsigned(t_specvar *var)
 {
 	char	*temp;
 
-	temp = infotoascii(var->hold, var->specif, var->mods);
+	temp = infotoascii(var->hold, var->specif);
 	if (var->mods[LEFTJUST])
 		write(1, temp, ft_strlen(temp));
 	while (var->width-- > ft_strlen(temp))

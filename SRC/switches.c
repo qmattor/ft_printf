@@ -6,7 +6,7 @@
 /*   By: MacMini <MacMini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 06:00:48 by MacMini           #+#    #+#             */
-/*   Updated: 2020/10/27 20:14:23 by MacMini          ###   ########.fr       */
+/*   Updated: 2020/11/01 01:32:11 by MacMini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,22 +47,13 @@ void	write_calls(t_specvar *var)
 
 //more shenanagance has ensued
 
-char	*infotoascii(void *hold, char spec, char *mods)
+char	*infotoascii(void *hold, char spec)
 {
 	char			*temp;
 	long long int	long_temp;
 
 	temp = NULL;
-	if (mods[DOUBLEH])
-		long_temp = (long long)(*(char *)hold);
-	else if (mods[SINGLEH])
-		long_temp = (long long)(*(short *)hold);
-	else if (mods[SINGLEL])
-		long_temp = (long long)(*(long *)hold);
-	else if (mods[DOUBLEL])
-		long_temp = *((long long *)hold);
-	else
-		long_temp = (long long)(*(int *)hold);
+	long_temp = (long long)(*(int *)hold);
 	if (spec == 'i' || spec == 'd' || spec == 'D')
 		temp = ft_ltoa(long_temp);
 	else if (spec == 'u' || spec == 'U')

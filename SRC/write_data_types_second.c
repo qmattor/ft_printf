@@ -6,7 +6,7 @@
 /*   By: MacMini <MacMini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 21:12:57 by MacMini           #+#    #+#             */
-/*   Updated: 2020/10/27 19:51:17 by MacMini          ###   ########.fr       */
+/*   Updated: 2020/11/01 01:33:01 by MacMini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	write_octal(t_specvar *var)
 {
 	char	*temp;
 
-	temp = infotoascii(var->hold, var->specif, var->mods);
+	temp = infotoascii(var->hold, var->specif);
 	if (var->mods[LEFTJUST])
 	{
 		if (var->mods[POUND])
@@ -41,7 +41,7 @@ void	write_hex(t_specvar *var)
 {
 	char			*temp;
 
-	temp = infotoascii(var->hold, var->specif, var->mods);
+	temp = infotoascii(var->hold, var->specif);
 	if (var->mods[LEFTJUST])
 	{
 		if (var->mods[POUND])
