@@ -14,8 +14,7 @@ all: $(NAME)
 
 $(NAME): $(OBJECTS)
 	make -C libft
-	make -C libft OBJS = $(OBJECTS)
-	ar rc $@ $^ OBJS
+	ar rc $@ $^
 	ranlib $(NAME)
 debug:
 	$(CC) $(CFLAGS) -g $(SOURCE) $(LIBFT) -o $(NAME)

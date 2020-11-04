@@ -75,19 +75,19 @@ SOURCE :=	ft_strrchr.c \
 			ft_itoab.c\
 			ft_uitoab.c
 
-OBJECTS := $(patsubst %.c,%.o,$(SOURCE))
+OBJS := $(patsubst %.c,%.o,$(SOURCE))
 
 all: $(NAME)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME): $(OBJECTS)
+$(NAME): $(OBJS)
 	ar rc $@ $^
 	ranlib $(NAME)
 
 clean:
-	rm -f $(OBJECTS)
+	rm -f $(OBJS)
 
 fclean: clean
 	rm -f $(NAME)
